@@ -1,12 +1,12 @@
-# jskillet
+#jskillet
 For all breakfast and brunch lovers alike. 
-Or if you're just looking to add a simple scramble animation to some text on your website.
+Or if you're just looking to add a simple scramble animation to some text on your website when a user hovers it.
 
 ##Usage
+
+Just add the 'scramble-me' class to a correctly formatted section of HTML.
+
 ```
-
-<!--Just add the 'scramble-me' class to a correctly formatted section of HTML-->
-
 <div class="scramble-me">
 				<div>
 					<span>S</span>
@@ -26,3 +26,27 @@ Or if you're just looking to add a simple scramble animation to some text on you
 					<span>S</span>
 				</div>
 ```
+
+I also like to add CSS similar to the following so that the divs/spans surrounding the letters 
+do not expand/shrink as they are scrambled. The width will have to change depending on font-size. 
+
+```
+.scramble-me div span{
+  display: inline-block;
+  width: 20px;
+}
+```
+
+##TODO
+
+*Clean up code
+*Add features for:
+..*Letting the user decide if they want the word unscrambled
+..*Changing the word that unscrambles as long as it is <= length of the original div
+..*Choosing between in-order/random-index scramble.
+..*Let the user remove characters they don't wish to appear during a scramble
+*Add a manual once more features have been added
+
+#License
+MIT
+
