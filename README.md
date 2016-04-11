@@ -29,6 +29,7 @@ Just add the 'scramble-me' class to a correctly formatted section of HTML.
 					<span>I</span>
 					<span>S</span>
 				</div>
+</div>
 ```
 
 I also like to add CSS similar to the following so that the divs/spans surrounding the letters 
