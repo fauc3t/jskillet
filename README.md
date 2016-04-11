@@ -3,7 +3,7 @@ For all breakfast and brunch lovers alike.
 Or if you're just looking to add a simple scramble animation to some text on your website.
 
 ##Usage
-'''
+```
 
 <!--Just add the 'scramble-me' class to a correctly formatted section of HTML-->
 
@@ -25,4 +25,4 @@ Or if you're just looking to add a simple scramble animation to some text on you
 					<span>I</span>
 					<span>S</span>
 				</div>
-'''
+```
