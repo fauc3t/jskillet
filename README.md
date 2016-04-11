@@ -4,6 +4,10 @@ Or if you're just looking to add a simple scramble animation to some text on you
 
 ##Usage
 
+Requires jQuery.
+
+Add jskillet.js to your preferred project directory and link to it in your HTML.
+
 Just add the 'scramble-me' class to a correctly formatted section of HTML.
 
 ```
@@ -40,11 +44,11 @@ do not expand/shrink as they are scrambled. The width will have to change depend
 ##TODO
 
 * Clean up code
-* Add features for:
-..* Letting the user decide if they want the word unscrambled
-..* Changing the word that unscrambles as long as it is <= length of the original div
-..* Choosing between in-order/random-index scramble.
-..* Let the user remove characters they don't wish to appear during a scramble
+* Add features for: 
+ * Letting the user decide if they want the word unscrambled
+ * Changing the word that unscrambles as long as it is <= length of the original div
+ * Choosing between in-order/random-index scramble.
+ * Let the user remove characters they don't wish to appear during a scramble
 * Add a manual once more features have been added
 
 #License
