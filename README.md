@@ -4,6 +4,10 @@ Or if you're just looking to add a simple scramble animation to some text on you
 
 ##Usage
 
+Requires jQuery.
+
+Add jskillet.js to your preferred project directory and link to it in your HTML.
+
 Just add the 'scramble-me' class to a correctly formatted section of HTML.
 
 ```
