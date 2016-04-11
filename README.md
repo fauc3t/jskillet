@@ -4,7 +4,9 @@ Or if you're just looking to add a simple scramble animation to some text on you
 
 ##Usage
 '''html
-/*Just add the 'scramble-me' class to a correctly formatted section of HTML*/
+
+Just add the 'scramble-me' class to a correctly formatted section of HTML
+
 <div class="scramble-me">
 				<div>
 					<span>S</span>
