@@ -1,0 +1,25 @@
+@font-face{
+font-family: oswald;
+src: url("../fonts/Oswald-Light.ttf") format("truetype");
+}
+
+.scramble-me{
+  font-family: oswald;
+  font-size: 40px;
+  display: block;
+
+}
+
+.scramble-me div{
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+.scramble-me div span{
+  display: inline-block;
+  width: 20px;
+}
+
+
+  
+
