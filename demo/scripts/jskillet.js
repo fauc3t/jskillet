@@ -8,14 +8,16 @@ To set up my scramble method all you need is HTML in the following format:
 </div> 
 
 I change the display to inline-block and the width of each span to be larger so that all letters stay in place (no left/right shifting of the word)
-
 */
 
 //Milliseconds per iteration of the scramble method
 var scrambleTimeout = 60;
 
-//When div of center_name is hovered 'Nick' or 'Horn' 
-//Script begins scramble
+//Scramble/Unscramble using random indices or in order
+var inorder_scramble = false;
+var inorder_unscramble = false;
+
+//When div is hovered script begins scramble
 $('.scramble-me div').hover(function()
 {
 	//On hover
@@ -76,8 +78,10 @@ function randomChar(charArray, div, num, text)
 
 		//Set index of charArray to the new char
 		//Use rand1 for random scramble or num for sequential scramble
-		charArray[rand1].html(String.fromCharCode(rand2));
-		//charArray[num].html(String.fromCharCode(rand2));
+		if(!inorder_scramble)
+			charArray[rand1].html(String.fromCharCode(rand2));
+		else
+			charArray[num].html(String.fromCharCode(rand2));
 		
 		//progress num and check if it is greate than charArray.length
 		//Set it to 0 if it is
@@ -118,17 +122,22 @@ function unscramble(charArray, div, it, index, text)
 	if(it>=5)
 	{
 		//Use this for a random unscramble
-		var rand = Math.floor(Math.random()*charArray.length);
-		charArray[rand].html(text.charAt(rand));
-		charArray.splice(rand,1);
-		text = text.substring(0,rand) + text.substring(rand+1,text.length);
-		it=0;
 
+
+		if(!inorder_unscramble){
+			var rand = Math.floor(Math.random()*charArray.length);
+			charArray[rand].html(text.charAt(rand));
+			charArray.splice(rand,1);
+			text = text.substring(0,rand) + text.substring(rand+1,text.length);
+			it=0;
+		}
 		//Use this for a sequential unscrarmble
-		/*charArray[0].html(text.charAt(0));
-		it = 0;
-		charArray.splice(0, 1);
-		text = text.substring(1, text.length);*/
+		else{
+			charArray[0].html(text.charAt(0));
+			it = 0;
+			charArray.splice(0, 1);
+			text = text.substring(1, text.length);
+		}
 	}
 
 	//If the current index is greater then or equal to the charArray length
