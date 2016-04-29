@@ -10,12 +10,15 @@ To set up my scramble method all you need is HTML in the following format:
 I change the display to inline-block and the width of each span to be larger so that all letters stay in place (no left/right shifting of the word)
 */
 
-//Milliseconds per iteration of the scramble method
-var scrambleTimeout = 60;
+var defaults = {
 
-//Scramble/Unscramble using random indices or in order
-var inorder_scramble = false;
-var inorder_unscramble = false;
+	//Milliseconds per iteration of the scramble method
+	'scramble_interval': 60,
+
+	//Scramble/Unscramble using random indices or in order
+	'inorder_scramble': false,
+	'inorder_unscramble': false
+}
 
 //When div is hovered script begins scramble
 $('.scramble-me div').hover(function()
@@ -78,7 +81,7 @@ function randomChar(charArray, div, num, text)
 
 		//Set index of charArray to the new char
 		//Use rand1 for random scramble or num for sequential scramble
-		if(!inorder_scramble)
+		if(!defaults['inorder_scramble'])
 			charArray[rand1].html(String.fromCharCode(rand2));
 		else
 			charArray[num].html(String.fromCharCode(rand2));
@@ -94,7 +97,7 @@ function randomChar(charArray, div, num, text)
 	//While being scrambled (hovered)
 	//Recursively scramble the div
 	if(div.data("scramble") == true)
-		setTimeout(function(){randomChar(charArray, div, num, text); }, scrambleTimeout);
+		setTimeout(function(){randomChar(charArray, div, num, text); }, defaults['scramble_interval']);
 		
 
 	//If the div was being scrambled and is no longer set to 'scramble' (unhovered)
@@ -124,7 +127,7 @@ function unscramble(charArray, div, it, index, text)
 		//Use this for a random unscramble
 
 
-		if(!inorder_unscramble){
+		if(!defaults['inorder_unscramble']){
 			var rand = Math.floor(Math.random()*charArray.length);
 			charArray[rand].html(text.charAt(rand));
 			charArray.splice(rand,1);
@@ -171,7 +174,7 @@ function unscramble(charArray, div, it, index, text)
 	{
 		//Used to slow down the speed of the scramble when there are less letters left.
 		//This is just used to make it look smoother
-		var timeout = scrambleTimeout;
+		var timeout = defaults['scramble_interval'];
 
 		if(charArray.length<=2)
 		{
