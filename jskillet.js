@@ -20,9 +20,16 @@ var defaults = {
 	'inorder_unscramble': false
 }
 
-//When div is hovered script begins scramble
-$('.scramble-me div').hover(function()
-{
+function heatSkillet(className, ingredients){
+
+	for(var ingredient in ingredients){
+		defaults[ingredient] = ingredients[ingredient];
+	}
+
+	var scram = className + ' div'; 	
+
+	//When div is hovered script begins scramble
+	$(scram).hover(function(){
 	//On hover
 	//If the div is currently not being scrambled or unscrambled
 	//Set data of div to 'scramble' = true
@@ -32,12 +39,15 @@ $('.scramble-me div').hover(function()
 		$(this).data("scramble", true);
 		scramble($(this));
 	}
-//On unhover
-//Set data of div 'scramble' = false
-}, function()
+	//On unhover
+	//Set data of div 'scramble' = false
+	}, function()
 		{
 			$(this).data("scramble", false);
 		});
+}
+
+
 
 
 //Set up scramble
@@ -57,7 +67,6 @@ function scramble(div)
 	for(i = 0; i<numLetters; i++)
 	{
 		charArray[i] = div.find(':nth-child('+(i+1)+')');
-		console.log(charArray[i].text());
 		text+=charArray[i].text().trim();
 	}
 	

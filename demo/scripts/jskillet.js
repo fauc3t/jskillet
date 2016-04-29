@@ -20,9 +20,17 @@ var defaults = {
 	'inorder_unscramble': false
 }
 
-//When div is hovered script begins scramble
-$('.scramble-me div').hover(function()
-{
+function heatSkillet(className, ingredients){
+
+	for(var ingredient in ingredients){
+		defaults[ingredient] = ingredients[ingredient];
+	}
+
+	var scram = className + ' div'; 	
+
+	console.log(scram);
+
+	$(scram).hover(function(){
 	//On hover
 	//If the div is currently not being scrambled or unscrambled
 	//Set data of div to 'scramble' = true
@@ -32,12 +40,15 @@ $('.scramble-me div').hover(function()
 		$(this).data("scramble", true);
 		scramble($(this));
 	}
-//On unhover
-//Set data of div 'scramble' = false
-}, function()
+	//On unhover
+	//Set data of div 'scramble' = false
+	}, function()
 		{
 			$(this).data("scramble", false);
 		});
+}
+
+//When div is hovered script begins scramble
 
 
 //Set up scramble
